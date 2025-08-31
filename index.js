@@ -13,7 +13,7 @@ const newYear = "2025";
 let initalInvoiceAmt = 10503;     // Last invoice amount
 let initialInvoiceNum = 11069;    // Last invoice number
 
-// agar output folder nahi hai to bana do
+// if folder is not present then create
 if (!fs.existsSync(outputFolder)) {
   fs.mkdirSync(outputFolder);
 }
@@ -68,7 +68,7 @@ async function updateInvoice(filePath, outputPath) {
   // J13: Amount +1
   let amt = parseFloat(sheet.getCell("J13").value) || 0;
   //   let newAmt = amt + 1;
-  //Increase by 1 amount
+  //Amount increase by 1
   initalInvoiceAmt = initalInvoiceAmt+1;
   sheet.getCell("J13").value = initalInvoiceAmt;
   // J39: update
