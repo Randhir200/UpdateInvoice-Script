@@ -4,8 +4,8 @@ const ExcelJS = require("exceljs");
 const { toWords } = require("number-to-words");
 
 // === Parameters ===
-const inputFolder = "../../BINOD/September 2025";     // path for udpated invoices // D:\BINOD\September 2025
-const outputFolder = "../../BINOD/September 2025/Updated_Invoices";  // New path where you want updated sheet
+const inputFolder = "../../BINOD/September 2025/Updated_Invoices";     // path for udpated invoices // D:\BINOD\September 2025
+const outputFolder = "../../BINOD/September 2025/year_added";  // New path where you want updated sheet
 const newInvoiceDate = "01/10/2025";  // new invoice date
 const lastMonth = "September";              // Bill of the month
 const lastMonthNum = "09"             // month number
@@ -65,7 +65,7 @@ async function updateInvoice(filePath, outputPath) {
   sheet.getCell("F10").value = `Bill of the month ${lastMonth} ${newYear}(01-${lastMonthNum}-${newYear} to ${lastMonthTotalDays}-${lastMonthNum}-${newYear})`;
   
   //C16 String vlaue
-  sheet.getCell("C16").value = `Bill of the month ${lastMonth}`
+  sheet.getCell("C16").value = `Bill of the month ${lastMonth} ${newYear}`
   // C17: From/To Dates
   sheet.getCell("C17").value = `(From Date -01-${lastMonthNum}-${newYear} TO Date ${lastMonthTotalDays}-${lastMonthNum}-${newYear})`;
 
